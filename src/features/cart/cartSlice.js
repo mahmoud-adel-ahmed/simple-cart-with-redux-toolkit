@@ -9,7 +9,7 @@ let initialState = {
   total: 0,
 };
 
-let url = "http://course-api.com/react-useReducer-cart-project";
+let url = "https://course-api.com/react-useReducer-cart-project";
 export let getCartItems = createAsyncThunk("cart/getCartItems", async () => {
   let response = await axios.get(url);
   return response.data;
