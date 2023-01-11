@@ -5,32 +5,30 @@ import { openModal } from "../features/modal/modalSlice";
 import CartItem from "./CartItem";
 
 const CartContainer = () => {
-  // let { amount, cartItems, total, isLoading, error } = useSelector(
-  //   (state) => state.cart
-  // );
-
-  let { amount, cartItems, total } = useSelector((state) => state.cart);
+  let { amount, cartItems, total, isLoading, error } = useSelector(
+    (state) => state.cart
+  );
   let dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(calcTotal());
   }, [cartItems]);
 
-  // if (isLoading) {
-  //   return (
-  //     <div className="loading">
-  //       <h3>Loading...</h3>
-  //     </div>
-  //   );
-  // }
+  if (isLoading) {
+    return (
+      <div className="loading">
+        <h3>Loading...</h3>
+      </div>
+    );
+  }
 
-  // if (error) {
-  //   return (
-  //     <div className="error">
-  //       <h3>{error}</h3>
-  //     </div>
-  //   );
-  // }
+  if (error) {
+    return (
+      <div className="error">
+        <h3>{error}</h3>
+      </div>
+    );
+  }
 
   if (amount < 1) {
     return (
